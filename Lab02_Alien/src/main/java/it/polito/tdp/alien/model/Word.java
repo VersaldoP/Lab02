@@ -44,6 +44,11 @@ public class Word {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "alienword=" + alienword + ", translation=" + translation + "\n";
+	}
+	
 	
 
 }

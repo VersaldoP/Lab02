@@ -11,6 +11,9 @@ import javafx.scene.control.TextArea;
 
 public class FXMLController {
 	private AlienDictionary model;
+	private String[] divide;
+	private String word;
+	private String translation;
 
     @FXML
     private ResourceBundle resources;
@@ -29,6 +32,7 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
+    
     public void setModel(AlienDictionary model) {
 		// TODO Auto-generated method stub
 		this.model=model;
@@ -36,13 +40,62 @@ public class FXMLController {
 
     @FXML
     void doReset(ActionEvent event) {
+    	txtWord.setText("");
+    	txtResult.setText("");
 
     }
 
     @FXML
     void doTranslate(ActionEvent event) {
-
+    	boolean spazio;
+    	boolean lettere=word.matches("[a-z]+");
+    	word = txtWord.getText();
+    	word.toLowerCase();
+    	
+    	
+    	
+    	if(spazio=word.contains(" ")&& lettere) {
+    		
+    		divide = word.split(" ");
+    		word = divide[0];
+    		translation = divide[1];
+    		model.addWord(word,translation);
+    		txtWord.setText("");
+    		txtResult.setText("Traduzione inserita correttamente");
+    		System.out.println("Check Var");
+    		return;
+    		
+    		
+    	}
+    	else {
+    		if(word.matches("[a-z]+")) {
+    		if(model.getDictionary().containsKey(word)) {
+    		
+    		txtResult.setText(model.getDictionary().get(word).toString());
+    		txtWord.setText("");
+    		System.out.println("Check Var");
+    		return;
+    		}
+    		}
+    		else {
+    			txtResult.setText("Errore, la parola inserita non è presente nel Dizionario");
+    			return;
+    		}
+    	}
+    	
+    	
+    
+    	
+    		txtWord.setText("");
+    		txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
+    		System.out.println(lettere);
+        	System.out.println(spazio);
+    		
+    		
+    	
     }
+
+    
 
     @FXML
     void initialize() {

@@ -23,10 +23,14 @@ public class AlienDictionary {
 	public String translateWord(String alienWord) {
 		String  result= null;
 		if(dictionary.containsKey(alienWord)) {
-			result = dictionary.get(alienWord).getTranslation();
+			result = dictionary.get(alienWord).getTranslation()+"\n";
 		}
 		return result;
 		
 	}
+	public Map<String, Word> getDictionary() {
+		return dictionary;
+	}
+	
 
 }
