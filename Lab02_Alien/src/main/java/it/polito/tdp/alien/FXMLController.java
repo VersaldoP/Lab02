@@ -3,14 +3,14 @@ package it.polito.tdp.alien;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import it.polito.tdp.alien.model.Dictionary;
+import it.polito.tdp.alien.model.AlienDictionary;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 public class FXMLController {
-	private Dictionary model;
+	private AlienDictionary model;
 
     @FXML
     private ResourceBundle resources;
@@ -29,7 +29,7 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
-    public void setModel(Dictionary model) {
+    public void setModel(AlienDictionary model) {
 		// TODO Auto-generated method stub
 		this.model=model;
 	}
