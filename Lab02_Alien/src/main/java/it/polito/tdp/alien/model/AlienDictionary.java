@@ -12,13 +12,16 @@ public class AlienDictionary {
 		this.dictionary = new HashMap<>();
 	}
 	public void addWord(String alienWord,String translate) {
-//		if (dictionary.containsKey(alienWord)) {
-//			return;
-//		}
-//		else {
+		if (dictionary.containsKey(alienWord)) {
+			dictionary.get(alienWord).addTranslation(translate);
+			return;
+		}
+			
+		
+		else {
 			dictionary.put(alienWord,new WordEnhanced(alienWord,translate));
 			return;
-//		}
+  	}
 	}
 	public String translateWord(String alienWord) {
 		String  result= null;

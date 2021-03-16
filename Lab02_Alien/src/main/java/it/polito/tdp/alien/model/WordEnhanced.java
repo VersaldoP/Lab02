@@ -1,25 +1,31 @@
 package it.polito.tdp.alien.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WordEnhanced {
 	private String alienword;
-	private String translation;
+	private List<String> translation;
 	public WordEnhanced(String alienword, String translation) {
 		super();
 		this.alienword = alienword;
-		this.translation = translation;
+		this.translation = new ArrayList<>();
+		this.translation.add(translation);
 	}
 	public void setAlienword(String alienword) {
 		this.alienword = alienword;
 	}
-	public void setTranslation(String translation) {
-		this.translation = translation;
-	}
+	
 	
 	public String getAlienword() {
 		return alienword;
 	}
-	public String getTranslation() {
+	public List<String> getTranslation() {
 		return translation;
+	}
+	public void addTranslation(String t2) {
+		translation.add(t2);
+		return;
 	}
 	@Override
 	public int hashCode() {
