@@ -1,9 +1,9 @@
 package it.polito.tdp.alien.model;
 
-public class Word {
+public class WordEnhanced {
 	private String alienword;
 	private String translation;
-	public Word(String alienword, String translation) {
+	public WordEnhanced(String alienword, String translation) {
 		super();
 		this.alienword = alienword;
 		this.translation = translation;
@@ -36,7 +36,7 @@ public class Word {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Word other = (Word) obj;
+		WordEnhanced other = (WordEnhanced) obj;
 		if (alienword == null) {
 			if (other.alienword != null)
 				return false;
@@ -46,7 +46,7 @@ public class Word {
 	}
 	@Override
 	public String toString() {
-		return "alienword=" + alienword + ", translation=" + translation + "\n";
+		return "Alienword<" + alienword + ">, Translation<" + translation + ">\n";
 	}
 	
 	

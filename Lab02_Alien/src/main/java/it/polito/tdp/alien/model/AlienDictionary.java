@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class AlienDictionary {
 	
-	private Map<String,Word> dictionary;
+	private Map<String,WordEnhanced> dictionary;
 
 	public AlienDictionary() {
 		super();
@@ -16,7 +16,7 @@ public class AlienDictionary {
 //			return;
 //		}
 //		else {
-			dictionary.put(alienWord,new Word(alienWord,translate));
+			dictionary.put(alienWord,new WordEnhanced(alienWord,translate));
 			return;
 //		}
 	}
@@ -28,7 +28,7 @@ public class AlienDictionary {
 		return result;
 		
 	}
-	public Map<String, Word> getDictionary() {
+	public Map<String, WordEnhanced> getDictionary() {
 		return dictionary;
 	}
 	

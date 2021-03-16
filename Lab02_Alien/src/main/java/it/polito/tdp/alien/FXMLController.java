@@ -47,53 +47,111 @@ public class FXMLController {
 
     @FXML
     void doTranslate(ActionEvent event) {
-    	boolean spazio;
-    	boolean lettere=word.matches("[a-z]+");
+    	
     	word = txtWord.getText();
-    	word.toLowerCase();
-    	
-    	
-    	
-    	if(spazio=word.contains(" ")&& lettere) {
+    	word =word.toLowerCase();
+    	boolean spazio=word.contains(" ");
+    	boolean lettere=word.matches("[a-z]+");
+
+    	if (spazio) {
     		
     		divide = word.split(" ");
-    		word = divide[0];
-    		translation = divide[1];
-    		model.addWord(word,translation);
-    		txtWord.setText("");
-    		txtResult.setText("Traduzione inserita correttamente");
-    		System.out.println("Check Var");
-    		return;
     		
+    		if(divide.length==2) {
+    			
+    			word = divide[0];
+        		translation = divide[1];
+        		
+        		if(word.matches("[a-z]+")&&translation.matches("[a-z]+")) {
+        			
+            		model.addWord(word,translation);
+            		txtWord.setText("");
+            		txtResult.setText("Traduzione inserita correttamente");
+
+            		return;
+        			
+        		}
+        		else {
+        			txtWord.setText("");
+        			txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
+        		}
+    		}
+    		else {
+    			txtWord.setText("");
+    			txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
+    		}
     		
     	}
     	else {
-    		if(word.matches("[a-z]+")) {
-    		if(model.getDictionary().containsKey(word)) {
-    		
-    		txtResult.setText(model.getDictionary().get(word).toString());
-    		txtWord.setText("");
-    		System.out.println("Check Var");
-    		return;
-    		}
+    		if(lettere) {
+    			if(model.getDictionary().containsKey(word)) {
+    	    		
+    	    		txtResult.setText(model.getDictionary().get(word).toString());
+    	    		txtWord.setText("");
+
+    	    		return;
+    	    		}
+    			else {
+        			txtResult.setText("Errore, la parola "+word+" inserita non è presente nel Dizionario");
+        			txtWord.setText("");
+        			return;
+    			}
+    			
     		}
     		else {
-    			txtResult.setText("Errore, la parola inserita non è presente nel Dizionario");
-    			return;
+    			txtWord.setText("");
+    			txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
     		}
     	}
-    	
-    	
+    
+    
+    
+    
+    }
     
     	
-    		txtWord.setText("");
-    		txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
-    		System.out.println(lettere);
-        	System.out.println(spazio);
-    		
-    		
     	
-    }
+    	
+//    	if(spazio=word.contains(" ")&& lettere) {
+//    		
+//    		divide = word.split(" ");
+//    		word = divide[0];
+//    		translation = divide[1];
+//    		model.addWord(word,translation);
+//    		txtWord.setText("");
+//    		txtResult.setText("Traduzione inserita correttamente");
+//    		System.out.println("Check Var");
+//    		return;
+//    		
+//    		
+//    	}
+//    	else {
+////    		if(word.matches("[a-z]+")) {
+//    		if(model.getDictionary().containsKey(word)) {
+//    		
+//    		txtResult.setText(model.getDictionary().get(word).toString());
+//    		txtWord.setText("");
+//    		System.out.println("Check Var");
+//    		return;
+////    		}
+//    		}
+//    		else {
+//    			txtResult.setText("Errore, la parola inserita non è presente nel Dizionario");
+//    			return;
+//    		}
+//    		}
+//    	
+//    	
+//    
+//    	
+////    		txtWord.setText("");
+//    		txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
+//    		System.out.println(lettere);
+//        	System.out.println(spazio);
+//    		
+//    		
+//    	
+//    }
 
     
 
