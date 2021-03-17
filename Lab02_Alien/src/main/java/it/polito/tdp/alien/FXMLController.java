@@ -42,6 +42,7 @@ public class FXMLController {
     void doReset(ActionEvent event) {
     	txtWord.setText("");
     	txtResult.setText("");
+    	model.getDictionary().clear();
 
     }
 
@@ -92,7 +93,7 @@ public class FXMLController {
     	    		return;
     	    		}
     			else {
-        			txtResult.setText("Errore, la parola "+word+" inserita non è presente nel Dizionario");
+        			txtResult.setText("Errore, la parola "+word+" non è presente nel Dizionario");
         			txtWord.setText("");
         			return;
     			}

@@ -13,8 +13,14 @@ public class AlienDictionary {
 	}
 	public void addWord(String alienWord,String translate) {
 		if (dictionary.containsKey(alienWord)) {
+			if(dictionary.get(alienWord).getTranslation().size()>1) {
+				
+				return;
+			}
+			else {
 			dictionary.get(alienWord).addTranslation(translate);
 			return;
+			}
 		}
 			
 		
