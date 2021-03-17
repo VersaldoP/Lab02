@@ -52,6 +52,9 @@ public class WordEnhanced {
 	}
 	@Override
 	public String toString() {
+		if(translation.size()>0) {
+			return "Alienword<" + alienword + ">, Translation<" + translation.get(0) +";"+translation.get(1)+ ">\n";
+		}
 		return "Alienword<" + alienword + ">, Translation<" + translation + ">\n";
 	}
 	
