@@ -26,11 +26,14 @@
    <center>
       <VBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="50.0" prefWidth="200.0" spacing="70.0">
+            <HBox prefWidth="200.0" spacing="70.0">
                <children>
-                  <Label text="Alien Text" />
-                  <TextArea fx:id="txtWord" prefHeight="17.0" prefWidth="200.0" />
-                  <Button fx:id="btnTranslate" mnemonicParsing="false" onAction="#doTranslate" text="Translate">
+                  <Label prefHeight="37.0" prefWidth="85.0" text="Alien Text:">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <TextArea fx:id="txtWord" prefHeight="10.0" prefWidth="200.0" />
+                  <Button fx:id="btnTranslate" mnemonicParsing="false" onAction="#doTranslate" prefHeight="38.0" prefWidth="77.0" text="Translate">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -40,13 +43,19 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <TextArea fx:id="txtResult" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Weolcome to Alien Dictionary v2021..." />
+            <TextArea fx:id="txtResult" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Weolcome to Alien Dictionary v2021...">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></TextArea>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="btnReset" mnemonicParsing="false" onAction="#doReset" text="Clear Text">
                      <font>
                         <Font name="System Bold" size="12.0" />
-                     </font></Button>
+                     </font>
+                     <HBox.margin>
+                        <Insets left="400.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </children>
