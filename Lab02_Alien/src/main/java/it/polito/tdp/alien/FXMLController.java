@@ -84,27 +84,37 @@ public class FXMLController {
     		
     	}
     	else {
-    		if(lettere) {
-    			if(model.getDictionary().containsKey(word)) {
-    	    		
+    		if(word.matches("?")) {
+    			word.replace("\\?",".");
+    		}
+    		else 
+    		{
+    			if(lettere) 
+    			{
+    			
+    		
+    			if(model.getDictionary().containsKey(word))
+    			{
+    			
     	    		txtResult.setText(model.getDictionary().get(word).toString());
     	    		txtWord.setText("");
 
     	    		return;
-    	    		}
+    	    	}
     			else {
         			txtResult.setText("Errore, la parola "+word+" non è presente nel Dizionario");
         			txtWord.setText("");
         			return;
-    			}
+    				}
     			
-    		}
-    		else {
-    			txtWord.setText("");
-    			txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
-    		}
+    			}
+    			else {
+    				txtWord.setText("");
+    				txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
+    				}
+    			}
+    		
     	}
-    
     
     
     
