@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 public class FXMLController {
 	private AlienDictionary model;
 	private String[] divide;
+	private String[] stronzo;
 	private String word;
 	private String translation;
 
@@ -53,6 +54,7 @@ public class FXMLController {
     	word =word.toLowerCase();
     	boolean spazio=word.contains(" ");
     	boolean lettere=word.matches("[a-z]+");
+    	boolean question=word.contains("?");
 
     	if (spazio) {
     		
@@ -84,10 +86,62 @@ public class FXMLController {
     		
     	}
     	else {
-    		if(word.matches("?")) {
-    			word.replace("\\?",".");
+    		if(question) {
+    			/*
+    			
+//    			word.replaceAll("?","1");
+//    			System.out.println(word);
+//    			
+//    		
+//    		stronzo = word.split("1");
+//    		String word1 = stronzo[0];
+//    		
+//		    translation = stronzo[1];
+//		    System.out.println(word1+" "+translation);
+//    	
+//		
+//		if(divide.length==2) {
+//			
+		
+//		if(word1.matches("[a-z]+")&&translation.matches("[a-z]+")) {
+ * */
+    		
+    			if(word.matches("[a-z]+")||word.contains("?")){
+
+    			for(String s :model.getDictionary().keySet()) {
+    				if(s.length()==word.length()) {
+    					int control= 0;
+    				 
+    					for(int i =0;i<s.length();i++) {
+                            
+    						if(word.charAt(i)==s.charAt(i)||word.charAt(i)=='?') {
+    							
+    							control++;
+    							
+    							
+    						}
+    					}
+    					if(control==word.length()) {
+    						txtResult.setText(model.getDictionary().get(s).toString());
+    	    	    		txtWord.setText("");
+
+    	    	    		return;
+    						
+    					}
+    				}
+    			}
+			}
+		
+		
+		else {
+			txtWord.setText("");
+			txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
+			}
+    			
+    		
     		}
     		else 
+    			
     		{
     			if(lettere) 
     			{
@@ -113,12 +167,14 @@ public class FXMLController {
     				txtResult.setText("Errore, Devi inserire solo Parole nel formato: Parola Traduzione");
     				}
     			}
+    	
     		
     	}
-    
-    
-    
     }
+    
+    
+    
+    
     
     	
     	

@@ -1,4 +1,4 @@
-package it.polito.tdp.alien.model;
+                       package it.polito.tdp.alien.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class WordEnhanced {
 	}
 	@Override
 	public String toString() {
-		System.out.println(this.translation.size());
+//		System.out.println(this.translation.size());
 		if(this.translation.size()>1) {
 			return "Alienword<" + alienword + ">, Translation<" + translation.get(0) +";"+translation.get(1)+ ">\n";
 		}
