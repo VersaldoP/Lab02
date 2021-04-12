@@ -57,6 +57,17 @@ public class FXMLController {
     	if (spazio) {
     		
     		divide = word.split(" ");
+//    		POSSO USARE STRINGTOKENIZER  CHE FA GIà L'AZIONE DI SPLIT 
+//    		StringTokenizer st = new StringTokenizer(riga, " ");
+//    		
+//    		// Controllo su String Tokenizer (superfluo)
+//    		if (!st.hasMoreElements()) {
+//    			txtResult.setText("Inserire una o due parole.");
+//    			return;
+//    		}
+//
+//    		// Estraggo la prima parola
+//    		String alienWord = st.nextToken();
     		
     		if(divide.length==2) {
     			
